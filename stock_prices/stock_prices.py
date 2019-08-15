@@ -3,24 +3,30 @@
 import argparse
 
 def find_max_profit(prices):
-  if type(prices) != list:
-    return "Enter a list of stock prices"
+  # if type(prices) != list:
+  #   return "Enter a list of stock prices"
 
-  current_min_price_so_far = 0
-  max_profit_so_far = 0
-  maximumIndex = 0
+  # current_min_price_so_far = 0
+  # max_profit_so_far = 0
+  # maximumIndex = 0
 
-  for i in range(prices):
+  # for i in range(prices):
 
-    if max_profit_so_far <= prices[i]:
-      max_profit_so_far = prices[i]
-      maximumIndex = i
+  #   if max_profit_so_far <= prices[i]:
+  #     max_profit_so_far = prices[i]
+  #     maximumIndex = i
 
-    if i <= maximumIndex and current_min_price_so_far >= prices[i]:
-      current_min_price_so_far = prices[i]
+  #   if i <= maximumIndex and current_min_price_so_far >= prices[i]:
+  #     current_min_price_so_far = prices[i]
 
-  profit = max_profit_so_far - current_min_price_so_far
+  # profit = max_profit_so_far - current_min_price_so_far
+  profit = prices[1]-prices[0]
+  for x in range(len(prices)-1):
+    for y in range(x+1, len(prices)):
+      if prices[y] - prices[x] > profit:
+        profit = prices[y] - prices[x]
 
+  return profit
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
